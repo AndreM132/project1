@@ -1,7 +1,7 @@
 from application import app, db
 from flask import render_template, redirect, url_for
-from application.forms import ListForm
-from application.models import Lists
+from application.forms import ListForm, GCForm
+from application.models import Lists, GC
 
 
 @app.route('/')
@@ -14,9 +14,26 @@ def home():
 def about():
     return render_template('about.html', title='about')
 	
-@app.route('/gamesconsoles')
+@app.route('/gamesconsoles', methods=['GET', 'POST'])
 def gamesconsoles():
-    return render_template('gamesconsoles.html', title='Games and Consoles')
+    form = GCForm()
+    if form.validate_on_submit():
+            GCData = GC(
+                    games_title=form.games_title.data,
+                    age_rating=form.age_rating.data,
+                    games_price=form.games_price.data,
+                    games_description=form.games_description.data,
+                    console_title=form.console_title.data,
+                    console_price=form.console_price.data,
+                    console_description=form.console_description.data
+            )
+            db.session.add(GCData)
+            db.session.commit()
+            return redirect(url_for('gamesconsoles'))
+
+    else:
+            print(form.errors)
+    return render_template('gamesconsoles.html', title='Games and Consoles', form=form)
 
 
 @app.route('/lists', methods=['GET', 'POST'])

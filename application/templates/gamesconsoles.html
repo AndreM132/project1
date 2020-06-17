@@ -3,5 +3,100 @@
 
 <h3>All Games and Consoles</h3>
 
+<div class="form">
+        <form method="POST" action="">
+                {{ form.hidden_tag() }}
+                <div class="form-group">
+                        {{ form.games_title.label }}
+                        {{ form.games_title }}
+                        {% if form.games_title.errors %}
+                        <div class="error">
+                                {% for error in form.games_title.errors %}
+                                    <span>{{ error }}</span>
+                                {% endfor %}
+                        </div>
+                        {% endif %}
+                </div>
+                <br>
+                <div class="form-group">
+                        {{ form.age_rating.label }}
+                        {{ form.age_rating }}
+                        {% if form.age_rating.errors %}
+                        <div class="error">
+                                {% for error in form.age_rating.errors %}
+                                    <span>{{ error }}</span>
+                                {% endfor %}
+                        </div>
+                        {% endif %}
+                </div>
+                <br>
+                <div class="form-group">
+                        {{ form.games_price.label }}
+                        {{ form.games_price }}
+                        {% if form.games_price.errors %}
+                        <div class="error">
+                                {% for error in form.games_price.errors %}
+                                    <span>{{ error }}</span>
+                                {% endfor %}
+                        </div>
+                        {% endif %}
+                </div>
+                <br>
+		<div class="form-group">
+                        {{ form.games_description.label }}
+                        {{ form.games_description }}
+                        {% if form.games_description.errors %}
+                        <div class="error">
+                                {% for error in form.games_description.errors %}
+                                    <span>{{ error }}</span>
+                                {% endfor %}
+                        </div>
+                        {% endif %}
+                </div>
+                <br>
+                <div class="form-group">
+                        {{ form.console_title.label }}
+                        {{ form.console_title }}
+                        {% if form.console_title.errors %}
+                        <div class="error">
+                                {% for error in form.console_title.errors %}
+                                    <span>{{ error }}</span>
+                                {% endfor %}
+                        </div>
+                        {% endif %}
+                </div>
+                <br>
+                <div class="form-group">
+                        {{ form.console_price.label }}
+                        {{ form.console_price }}
+                        {% if form.console_price.errors %}
+                        <div class="error">
+                                {% for error in form.console_price.errors %}
+                                    <span>{{ error }}</span>
+                                {% endfor %}
+                        </div>
+                        {% endif %}
+                </div>
+                <br>
+		<div class="form-group">
+                        {{ form.console_description.label }}
+                        {{ form.console_description }}
+                        {% if form.console_description.errors %}
+                        <div class="error">
+                                {% for error in form.console_description.errors %}
+                                    <span>{{ error }}</span>
+                                {% endfor %}
+                        </div>
+                        {% endif %}
+                </div>
+                <br>
+		 <div class="form-group">
+                    {{ form.submit }}
+                </div>
+        </form>
 
+</div>
+<br>
+
+</br>
 {% endblock %}

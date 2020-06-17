@@ -1,7 +1,7 @@
 from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField
 from wtforms.validators import DataRequired, Length
-from application.models import Lists
+from application.models import Lists, GC
 
 class ListForm(FlaskForm):
     first_name = StringField('First Name',
@@ -40,3 +40,57 @@ class ListForm(FlaskForm):
     )
 
     submit = SubmitField('Post List!')
+
+
+class GCForm(FlaskForm):
+    games_title = StringField('Games Title',
+            validators = [
+                DataRequired(),
+                Length(min=4, max=50)
+            ]
+    )
+
+    age_rating = StringField('Age Rating',
+            validators = [
+                DataRequired(),
+                Length(min=1, max=10)
+            ]
+    )
+
+    games_price = StringField('Games Price',
+            validators = [
+                DataRequired(),
+                Length(min=1, max=10)
+            ]
+    )
+
+    games_description = StringField('Games Description',
+            validators = [
+                DataRequired(),
+                Length(min=4, max=100)
+            ]
+    )
+
+    console_title = StringField('Console Title(s)',
+            validators = [
+                DataRequired(),
+                Length(min=3, max=30)
+            ]
+    )
+
+    console_price = StringField('Console Price',
+            validators = [
+                DataRequired(),
+                Length(min=1, max=10)
+            ]
+    )
+
+    console_description = StringField('Console Description',
+            validators = [
+                DataRequired(),
+                Length(min=3, max=100)
+            ]
+    )
+
+    submit = SubmitField('Add Game!')
+
