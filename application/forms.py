@@ -1,6 +1,7 @@
 from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField
 from wtforms.validators import DataRequired, Length
+from application.models import Lists
 
 class ListForm(FlaskForm):
     first_name = StringField('First Name',
@@ -28,6 +29,13 @@ class ListForm(FlaskForm):
             validators = [
                 DataRequired(),
                 Length(min=4, max=100)
+            ]
+    )
+
+    favourites = StringField('Favourites',
+            validators = [
+                DataRequired(),
+                Length(min=3, max=30)
             ]
     )
 

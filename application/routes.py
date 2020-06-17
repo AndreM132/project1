@@ -27,7 +27,8 @@ def lists():
 			first_name=form.first_name.data,
 			last_name=form.last_name.data,
 			list_title=form.list_title.data,
-			list_description=form.list_description.data
+			list_description=form.list_description.data,
+                        favourites=form.favourites.data
 		)
 		db.session.add(listData)
 		db.session.commit()
