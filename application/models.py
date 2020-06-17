@@ -6,12 +6,12 @@ class Lists(db.Model):
     last_name = db.Column(db.String(30), nullable=False)
     list_title = db.Column(db.String(30), nullable=False, unique=True)
     list_description = db.Column(db.String(100), nullable=False, unique=True)
-    favorites = db.Column(db.String(30), nullable=False, unique=True)
+    favourites = db.Column(db.String(30), nullable=False, unique=True)
 
     def __repr__(self):
         return ''.join([
-            'User: ', self.first_name, ' ', self.last_name, '\r\n',
-            'Title: ', self.title,'\r\n', 
-			'List: ', self.list_title
+            'User: ', self.first_name, '\r\n', 'Last Name ', self.last_name, '\r\n',
+            'Title: ', self.list_title,'\r\n', 'Description: ', self.list_description, '\r\n',
+            'Favourites: ', self.favourites
         ])
 
