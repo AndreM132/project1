@@ -20,10 +20,10 @@ class GC(db.Model):
     games_console_id = db.Column(db.Integer, primary_key=True)
     games_title = db.Column(db.String(30), nullable=False)
     age_rating = db.Column(db.Integer, nullable=False)
-    games_price = db.Column(db.Integer, nullable=False, unique=True)
+    games_price = db.Column(db.Integer, nullable=False)
     games_description = db.Column(db.String(100), nullable=False, unique=True)
-    console_title= db.Column(db.String(30), nullable=False, unique=True)
-    console_price = db.Column(db.Integer, nullable=False, unique=True)
+    console_title= db.Column(db.String(30), nullable=False)
+    console_price = db.Column(db.Integer, nullable=False)
     console_description = db.Column(db.String(100), nullable=False, unique=True)
     
     def __repr__(self):

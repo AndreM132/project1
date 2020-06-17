@@ -3,7 +3,22 @@
 
 <h3>All Games and Consoles</h3>
 
-<div class="form">
+<head>
+<style>
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+th, td {
+  padding: 5px;
+}
+th, td {
+  text-align: center;
+}
+</style>
+</head>
+
+ <div class="form">
         <form method="POST" action="">
                 {{ form.hidden_tag() }}
                 <div class="form-group">
@@ -93,9 +108,34 @@
 		 <div class="form-group">
                     {{ form.submit }}
                 </div>
-        </form>
-
-</div>
+	</form>  
+	<br></br>
+<table id="GC" >
+{% for gandc in GC %}
+        <div>
+        <table style="width:80%">
+  <tr>
+    <th>Games Title</th>
+    <th>Age Rating</th>
+    <th>Games Price</th>
+    <th>Games Description</th>
+    <th>Console Title(s)</th>
+    <th>Console Price</th>
+    <th>Console Description</th>
+  </tr>
+  <tr>
+    <td>{{ gandc.games_title }}</td>
+    <td>{{ gandc.age_rating }}</td>
+    <td>{{ gandc.games_price }}</td>
+    <td>{{ gandc.games_description }}</td>
+    <td>{{ gandc.console_title }}</td>
+    <td>{{ gandc.console_price }}</td>
+    <td>{{ gandc.console_description }}</td>
+  </tr>
+</table>
+  </div>
+  {% endfor %}
+ </div>
 <br>
 
 </br>
