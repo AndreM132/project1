@@ -65,6 +65,18 @@
 		</div>
 		<br>
 		<div class="form-group">
+                        {{ form.games_id.label }}
+                        {{ form.games_id }}
+                        {% if form.games_id.errors %}
+                        <div class="error">
+                                {% for error in form.games_id.errors %}
+                                    <span>{{ error }}</span>
+                                {% endfor %}
+                        </div>
+                        {% endif %}
+                </div>
+                <br>
+		<div class="form-group">
 		    {{ form.submit }}
 		</div>
 	</form>

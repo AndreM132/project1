@@ -6,7 +6,8 @@ class Lists(db.Model):
     last_name = db.Column(db.String(30), nullable=False)
     list_title = db.Column(db.String(30), nullable=False, unique=True)
     list_description = db.Column(db.String(100), nullable=False, unique=True)
-    favourites = db.Column(db.String(30), nullable=False, unique=True)
+    favourites = db.Column(db.String(30), nullable=False)
+    games_id = db.Column(db.Integer, db.ForeignKey('games.games_id'), nullable=False)
 
     def __repr__(self):
         return ''.join([
@@ -16,19 +17,18 @@ class Lists(db.Model):
         ])
 
 
-class GC(db.Model):
-    games_console_id = db.Column(db.Integer, primary_key=True)
+class Games(db.Model):
+    games_id = db.Column(db.Integer, primary_key=True)
     games_title = db.Column(db.String(30), nullable=False)
     age_rating = db.Column(db.Integer, nullable=False)
     games_price = db.Column(db.Integer, nullable=False)
     games_description = db.Column(db.String(100), nullable=False, unique=True)
-    console_title= db.Column(db.String(30), nullable=False)
-    console_price = db.Column(db.Integer, nullable=False)
-    console_description = db.Column(db.String(100), nullable=False, unique=True)
-    
+    console_title = db.Column(db.String(30), nullable=False)
+    lists = db.relationship('Lists', backref='gamesref', lazy=True)
+
     def __repr__(self):
         return ''.join([
-            'Games Console ID: ', self.games_console_id, '\r\n', 'Games Title: ', self.games_title, '\r\n'
+            'Games ID: ', self.games_id, '\r\n', 'Games Title: ', self.games_title, '\r\n'
             ,'Console Title:: ', self.console_title,'\r\n'
         ])
 

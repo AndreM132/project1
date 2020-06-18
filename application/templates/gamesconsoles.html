@@ -1,7 +1,7 @@
 {% extends 'layout.html' %}
 {% block body_content %}
 
-<h3>All Games and Consoles</h3>
+<h3>All Games!</h3>
 
 <head>
 <style>
@@ -81,30 +81,6 @@ th, td {
                         {% endif %}
                 </div>
                 <br>
-                <div class="form-group">
-                        {{ form.console_price.label }}
-                        {{ form.console_price }}
-                        {% if form.console_price.errors %}
-                        <div class="error">
-                                {% for error in form.console_price.errors %}
-                                    <span>{{ error }}</span>
-                                {% endfor %}
-                        </div>
-                        {% endif %}
-                </div>
-                <br>
-		<div class="form-group">
-                        {{ form.console_description.label }}
-                        {{ form.console_description }}
-                        {% if form.console_description.errors %}
-                        <div class="error">
-                                {% for error in form.console_description.errors %}
-                                    <span>{{ error }}</span>
-                                {% endfor %}
-                        </div>
-                        {% endif %}
-                </div>
-                <br>
 		 <div class="form-group">
                     {{ form.submit }}
                 </div>
@@ -120,8 +96,6 @@ th, td {
     <th>Games Price</th>
     <th>Games Description</th>
     <th>Console Title(s)</th>
-    <th>Console Price</th>
-    <th>Console Description</th>
   </tr>
   <tr>
     <td>{{ gandc.games_title }}</td>
@@ -129,8 +103,6 @@ th, td {
     <td>{{ gandc.games_price }}</td>
     <td>{{ gandc.games_description }}</td>
     <td>{{ gandc.console_title }}</td>
-    <td>{{ gandc.console_price }}</td>
-    <td>{{ gandc.console_description }}</td>
   </tr>
 </table>
   </div>

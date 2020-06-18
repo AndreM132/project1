@@ -1,7 +1,7 @@
 from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField
 from wtforms.validators import DataRequired, Length
-from application.models import Lists, GC
+from application.models import Lists, Games
 
 class ListForm(FlaskForm):
     first_name = StringField('First Name',
@@ -32,10 +32,17 @@ class ListForm(FlaskForm):
             ]
     )
 
-    favourites = StringField('Favourites',
+    favourites = StringField('Favourite Console',
             validators = [
                 DataRequired(),
                 Length(min=3, max=30)
+            ]
+    )
+
+    games_id = StringField('Games ID',
+            validators = [
+                DataRequired(),
+                Length(min=1, max=10)
             ]
     )
 
@@ -75,20 +82,6 @@ class GCForm(FlaskForm):
             validators = [
                 DataRequired(),
                 Length(min=3, max=30)
-            ]
-    )
-
-    console_price = StringField('Console Price',
-            validators = [
-                DataRequired(),
-                Length(min=1, max=10)
-            ]
-    )
-
-    console_description = StringField('Console Description',
-            validators = [
-                DataRequired(),
-                Length(min=3, max=100)
             ]
     )
 

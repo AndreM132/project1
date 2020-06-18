@@ -35,8 +35,25 @@ th, td {
     <td>{{ list.list_description }}</td>
     <td>{{ list.favourites }}</td>
   </tr>
-</table>	
-  </div>
+	</table>
+	</div>
+{% endfor %}
+
+  <br></br>
+
+{% for list in lists %}
+        <div>
+        <table style="width:80%">
+  <tr>
+    <th>games ID</th>
+    <th>Title</th>
+  </tr>
+  <tr>
+    <td>{{ list.gamesref.games_id }}</td>
+    <td>{{ list.list_title }}</td>
+  </tr>
+</table>
+	</div>
   <br></br>
   {% endfor %}
 
