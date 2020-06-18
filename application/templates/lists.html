@@ -101,20 +101,21 @@ th, td {
 </style>
 </head>
 
+
 {% for list in lists %}
-        <div>
-        <table style="width:80%">
+<div>
+<table style="width:80%">
+<caption>{{list_title}}</caption>
   <tr>
     <th>First Name</th>
     <th>Last Name</th>
-    <th>Title</th>
     <th>Description</th>
     <th>Favourites</th>
   </tr>
+
   <tr>
     <td>{{ list.first_name }}</td>
     <td>{{ list.last_name }}</td>
-    <td>{{ list.list_title }}</td>
     <td>{{ list.list_description }}</td>
     <td>{{ list.favourites }}</td>
   </tr>

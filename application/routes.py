@@ -49,7 +49,7 @@ def lists():
     	    )
 	    db.session.add(listData)
 	    db.session.commit()
-	    return redirect(url_for('home'))
+	    return redirect(url_for('lists'))
 
     else:
 	    print(form.errors)
