@@ -42,7 +42,7 @@ class ListForm(FlaskForm):
     games_id = StringField('Games ID',
             validators = [
                 DataRequired(),
-                Length(min=1, max=10)
+                Length(min=1, max=4)
             ]
     )
 

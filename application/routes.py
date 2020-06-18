@@ -37,21 +37,22 @@ def gamesconsoles():
 
 @app.route('/lists', methods=['GET', 'POST'])
 def lists():
-	form = ListForm()
-	if form.validate_on_submit():
-		listData = Lists(
+    listData = Lists.query.all()
+    form = ListForm()
+    if form.validate_on_submit():
+	    listData = Lists(
 			first_name=form.first_name.data,
 			last_name=form.last_name.data,
 			list_title=form.list_title.data,
 			list_description=form.list_description.data,
                         favourites=form.favourites.data,
                         games_id=form.games_id.data
-		)
-		db.session.add(listData)
-		db.session.commit()
-		return redirect(url_for('home'))
+    	    )
+	    db.session.add(listData)
+	    db.session.commit()
+	    return redirect(url_for('home'))
 
-	else:
-		print(form.errors)
-	return render_template('lists.html', title='Lists', form=form)
+    else:
+	    print(form.errors)
+    return render_template('lists.html', title='Lists', form=form, lists=listData)
 

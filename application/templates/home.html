@@ -44,13 +44,14 @@ th, td {
 {% for list in lists %}
         <div>
         <table style="width:80%">
+	<caption>{{list.list_title}}</caption>
   <tr>
     <th>games ID</th>
     <th>Title</th>
   </tr>
   <tr>
     <td>{{ list.gamesref.games_id }}</td>
-    <td>{{ list.list_title }}</td>
+    
   </tr>
 </table>
 	</div>
