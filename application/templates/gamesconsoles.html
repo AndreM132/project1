@@ -88,6 +88,7 @@ th, td {
 </head>
 
 <table id="Games" >
+
 {% for game in games %}
         <div>
         <table style="width:70%">
@@ -100,14 +101,14 @@ th, td {
   </tr>
   <tr>
     <td>{{ game.games_title }}</td>
-    <td>{{ game.gage_rating }}</td>
+    <td>{{ game.age_rating }}</td>
     <td>{{ game.games_price }}</td>
     <td>{{ game.games_description }}</td>
     <td>{{ game.console_title }}</td>
   </tr>
 </table>
  </div>
-  {% endfor %}
+{% endfor %}
 
 
 {% endblock %}

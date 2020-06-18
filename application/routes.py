@@ -7,8 +7,7 @@ from application.models import Lists, Games
 @app.route('/')
 @app.route('/home')
 def home():
-	listData = Lists.query.all()
-	return render_template('home.html', title='Home', lists=listData)
+	return render_template('home.html', title='Home')
 
 @app.route('/about')
 def about():
@@ -55,4 +54,5 @@ def lists():
     else:
 	    print(form.errors)
     return render_template('lists.html', title='Lists', form=form, lists=listData)
+
 

@@ -86,7 +86,7 @@
 
 </br>
 
-<head>
+  <head>
 <style>
 table, th, td {
   border: 1px solid black;
@@ -104,19 +104,22 @@ th, td {
 {% for list in lists %}
         <div>
         <table style="width:80%">
-        <caption>{{list.list_title}}</caption>
   <tr>
-    <th>games ID</th>
+    <th>First Name</th>
+    <th>Last Name</th>
     <th>Title</th>
+    <th>Description</th>
+    <th>Favourites</th>
   </tr>
   <tr>
-    <td>{{ list.gamesref.games_id }}</td>
-
+    <td>{{ list.first_name }}</td>
+    <td>{{ list.last_name }}</td>
+    <td>{{ list.list_title }}</td>
+    <td>{{ list.list_description }}</td>
+    <td>{{ list.favourites }}</td>
   </tr>
-</table>
+        </table>
         </div>
-  <br></br>
-  {% endfor %}
-
+{% endfor %}
 
 {% endblock body_content %}
