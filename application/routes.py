@@ -1,5 +1,5 @@
 from application import app, db
-from flask import render_template, redirect, url_for
+from flask import render_template, redirect, url_for, request
 from application.forms import ListForm, GCForm
 from application.models import Lists, Games
 
@@ -40,6 +40,7 @@ def lists():
     form = ListForm()
     if form.validate_on_submit():
 	    listData = Lists(
+                        list_id=form.list_id.data,
 			first_name=form.first_name.data,
 			last_name=form.last_name.data,
 			list_title=form.list_title.data,
@@ -56,3 +57,11 @@ def lists():
     return render_template('lists.html', title='Lists', form=form, lists=listData)
 
 
+@app.route('/update', methods=['GET', "POST"])
+def update():
+    firstname = request.form.get("firstname")
+    oldfirstname = request.form.get("oldfirstname")
+    update = Lists.query.filter_by(name=oldfirstname).first()
+    update.name = first_name
+    db.session.commit()
+    return redirect("/")

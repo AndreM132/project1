@@ -2,7 +2,14 @@
 
 {% block body_content %}
 
-
+{% for addlist in addlists %}
+  <p>{{addlist.list_title}}</p>
+  <form method="POST" action="./lists">
+    <input type="hidden" value="{{addlist.first_name}}" name="oldfirstname">
+    <input type="text" value="{{addlist.first_name}}" name="firstname">
+    <input type="submit" value="Update">
+  </form>
+{% endfor %}
 
 
 {% endblock %}

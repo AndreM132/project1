@@ -1,0 +1,16 @@
+{% extends 'layout.html' %}
+  
+{% block body_content %}
+
+{% for update in updates %}
+  <p>{{update.list_title}}</p>
+  <form method="POST" action="./update">
+    <input type="hidden" value="{{update.first_name}}" name="oldfirstname">
+    <input type="text" value="{{update.first_name}}" name="firstname">
+    <input type="submit" value="Update">
+  </form>
+{% endfor %}
+
+
+{% endblock %}
+~                    
