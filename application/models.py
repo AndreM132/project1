@@ -7,7 +7,7 @@ class Lists(db.Model):
     list_title = db.Column(db.String(30), nullable=False, unique=True)
     list_description = db.Column(db.String(100), nullable=False, unique=True)
     favourites = db.Column(db.String(30), nullable=False)
-    games_id = db.Column(db.Integer, db.ForeignKey('games.games_id'), nullable=False, unique=True, autoincrement = True)
+    games_id = db.Column(db.Integer, db.ForeignKey('games.games_id'), nullable=False, unique=True)
 
     def __repr__(self):
         return ''.join([

@@ -107,21 +107,32 @@ th, td {
 <table style="width:80%">
 <caption>{{list_title}}</caption>
   <tr>
+    <th>List ID</th>
     <th>First Name</th>
     <th>Last Name</th>
     <th>Description</th>
     <th>Favourites</th>
+    <th>Delete</th>
+    <th>Update</th>
   </tr>
 
   <tr>
+    <td>{{ list.list_id }}</td>  
     <td>{{ list.first_name }}</td>
     <td>{{ list.last_name }}</td>
     <td>{{ list.list_description }}</td>
     <td>{{ list.favourites }}</td>
+    <td><form action={{ url_for('delete', list_id=list.list_id ) }} method='POST'>
+	    <button type="submit">Delete</button></form></td>
+    <td><form action={{ url_for('update', list_id=list.list_id ) }} method='POST'>
+		    <button type="submit">Update</button></form></td>
+    
+  <head>
   </tr>
         </table>
         </div>
 {% endfor %}
+
 
 
 
