@@ -1,6 +1,6 @@
 from application import app, db
 from flask import render_template, redirect, url_for, request
-from application.forms import ListForm, GCForm, UpdateForm
+from application.forms import ListForm, GCForm, AddForm
 from application.models import Lists, Games
 
 
@@ -78,6 +78,22 @@ def update(list_id):
         form.games_id.data=listData.games_id.data
 
     return render_template('update.html', title='Update', form=form)
+
+@app.route('/addgame/<int:list_id>', methods=['GET', 'POST'])
+def addgame(list_id):
+    form = AddForm()
+    listData = Lists.query.filter_by(list_id=list_id).first()
+    GamesData = Games.query.all()
+    if form.validate_on_submit():
+        listData.games_id=int(form.games_id.data)
+        GamesData.games_title = form.games_title.data
+        db.session.commit()
+        return redirect(url_for('lists'))
+    elif request.method == 'GET':
+        form.games_id.data=listData.games_id.data
+        form.games_title.data=GamesData.games_title.data
+
+    return render_template('addgame.html', title='Add Game', form=form)
 
 
 @app.route("/lists/delete/<int:list_id>", methods=["GET", "POST"])

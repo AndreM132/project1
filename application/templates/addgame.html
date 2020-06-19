@@ -4,18 +4,6 @@
         <form method="POST" action="">
                 {{ form.hidden_tag() }}
                 <div class="form-group">
-                        {{ form.list_id.label }}
-                        {{ form.list_id }}
-                        {% if form.list_id.errors %}
-                        <div class="error">
-                                {% for error in form.list_id.errors %}
-                                    <span>{{ error }}</span>
-                                {% endfor %}
-                        </div>
-                        {% endif %}
-                </div>
-                <br>
-                <div class="form-group">
                         {{ form.games_id.label }}
                         {{ form.games_id }}
                         {% if form.games_id.errors %}
@@ -46,7 +34,7 @@
 
 </div>
 
-  <head>
+<head>
 <style>
 table, th, td {
   border: 1px solid black;
@@ -73,12 +61,12 @@ th, td {
   <tr>
     <td>{{ list.list_id }}</td>
     <td>{{ list.games_id }}</td>
-{% for game in games %}
+    {% for game in games %}
     <td>{{ game.games_title }}</td>
   </tr>
         </table>
         </div>
-{% endfor %}
+    {% endfor %}
 {% endfor %}
 
 

@@ -85,9 +85,9 @@ class GCForm(FlaskForm):
             ]
     )
 
-    submit = SubmitField('Add Game!')
+    submit = SubmitField('Enter')
 
-class UpdateForm(FlaskForm):
+class AddForm(FlaskForm):
     list_id = StringField('list id',
             validators = [
                 DataRequired(),
@@ -105,9 +105,9 @@ class UpdateForm(FlaskForm):
     games_title = StringField('games title',
             validators = [
                 DataRequired(),
-                Length(min=1, max=10)
+                Length(min=4, max=50)
             ]
     )
 
-    submit = SubmitField('Update List')
+    submit = SubmitField('Add Game')
 

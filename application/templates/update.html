@@ -6,7 +6,7 @@
                 <div class="form-group">
                         {{ form.first_name.label }}
                         {{ form.first_name }}
-                        {% if form.first_name.errors %}
+			{% if form.first_name.errors %}
                         <div class="error">
                                 {% for error in form.first_name.errors %}
                                     <span>{{ error }}</span>
@@ -18,7 +18,7 @@
                 <div class="form-group">
                         {{ form.last_name.label }}
                         {{ form.last_name }}
-                        {% if form.last_name.errors %}
+			{% if form.last_name.errors %}
                         <div class="error">
                                 {% for error in form.last_name.errors %}
                                     <span>{{ error }}</span>
@@ -30,7 +30,7 @@
                 <div class="form-group">
                         {{ form.list_title.label }}
                         {{ form.list_title }}
-                        {% if form.list_title.errors %}
+			{% if form.list_title.errors %}
                         <div class="error">
                                 {% for error in form.list_title.errors %}
                                     <span>{{ error }}</span>
@@ -43,7 +43,7 @@
                 <div class="form-group">
                         {{ form.list_description.label }}
                         {{ form.list_description }}
-                        {% if form.list_description.errors %}
+			{% if form.list_description.errors %}
                         <div class="error">
                                 {% for error in form.list_description.errors %}
                                     <span>{{ error }}</span>
@@ -55,7 +55,7 @@
                 <div class="form-group">
                         {{ form.favourites.label }}
                         {{ form.favourites }}
-                        {% if form.favourites.errors %}
+			{% if form.favourites.errors %}
                         <div class="error">
                                 {% for error in form.favourites.errors %}
                                     <span>{{ error }}</span>
@@ -67,7 +67,7 @@
                 <div class="form-group">
                         {{ form.games_id.label }}
                         {{ form.games_id }}
-                        {% if form.games_id.errors %}
+			{% if form.games_id.errors %}
                         <div class="error">
                                 {% for error in form.games_id.errors %}
                                     <span>{{ error }}</span>

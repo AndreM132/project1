@@ -126,12 +126,14 @@ th, td {
 	    <button type="submit">Delete</button></form></td>
     <td><form action={{ url_for('update', list_id=list.list_id ) }} method='POST'>
 		    <button type="submit">Update</button></form></td>
-    
-  <head>
+    <td><form action={{ url_for('addgame', list_id=list.list_id ) }} method='POST'>
+		    <button type="submit">Add Games</button></form></td>
+  
   </tr>
         </table>
         </div>
 {% endfor %}
+
 
 
 
