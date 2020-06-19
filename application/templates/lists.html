@@ -105,7 +105,7 @@ th, td {
 {% for list in lists %}
 <div>
 <table style="width:80%">
-<caption>{{list_title}}</caption>
+	<caption><h3>{{list.list_title}}</h3></caption>
   <tr>
     <th>List ID</th>
     <th>First Name</th>
@@ -126,14 +126,15 @@ th, td {
 	    <button type="submit">Delete</button></form></td>
     <td><form action={{ url_for('update', list_id=list.list_id ) }} method='POST'>
 		    <button type="submit">Update</button></form></td>
-    <td><form action={{ url_for('addgame', list_id=list.list_id ) }} method='POST'>
-		    <button type="submit">Add Games</button></form></td>
   
   </tr>
         </table>
         </div>
+	<p><form action={{ url_for('addgame', list_id=list.list_id ) }} method='POST'>
+		<button type="submit">Add Games</button></form></p>
+   	
 {% endfor %}
-
+        
 
 
 

@@ -33,6 +33,7 @@
         </form>
 
 </div>
+<br></br>
 
 <head>
 <style>
@@ -48,26 +49,32 @@ th, td {
 }
 </style>
 </head>
-{% for list in lists %}
-<div>
-<table style="width:80%">
-<caption>{{list_title}}</caption>
+
+{% for addto in addtol %}
+<table id="Add" >
+        <div>
+        <table style="width:70%">
   <tr>
     <th>List ID</th>
     <th>Games ID</th>
-    <th>Game Title</th>
+    <th>Games Title</th>
   </tr>
-
   <tr>
-    <td>{{ list.list_id }}</td>
-    <td>{{ list.games_id }}</td>
-    {% for game in games %}
-    <td>{{ game.games_title }}</td>
+    <td>{{ addto.list_id }}</td>
+    <td>{{ addto.games_id }}</td>
+    <td>{{ addto.games_title }}</td>
   </tr>
-        </table>
-        </div>
-    {% endfor %}
 {% endfor %}
+</table>
+ </div>
+
+
+
+
+
+
+
+
 
 
 
