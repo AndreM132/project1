@@ -1,2 +1,2 @@
 # project1
-Repo for the first personal project
+Repo for first personal project!
