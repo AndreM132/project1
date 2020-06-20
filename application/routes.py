@@ -1,4 +1,4 @@
-from application import app, db
+from application import app, db, bcrypt
 from flask import render_template, redirect, url_for, request
 from application.forms import ListForm, GCForm, AddForm
 from application.models import Lists, Games
