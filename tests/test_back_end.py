@@ -119,6 +119,20 @@ class TestLists(TestBase):
             )
             return response
 
+    def test_missing_field_error(self):
+        with self.client: 
+            response = self.client.post(
+                    '/lists',
+                    data=dict(
+                        list_id='1',
+                    ),
+                    follow_redirects=True
+            )
+            self.assertIn(b'This field is required.', response.data)
+
+
+
+
     def test_update_lists(self):
 
         with self.client:
