@@ -62,6 +62,14 @@ class TestViews(TestBase):
         self.assertEqual(response.status_code, 200)
 
 
+
+
+
+
+
+
+
+
 class TestGames(TestBase):
 
     def test_add_new_game(self):
@@ -83,6 +91,7 @@ class TestGames(TestBase):
             )
             self.assertIn(b'1', response.data)
             self.assertIn(b'PS4', response.data)
+            self.assertIn(b'3', response.data)
             print(response.data)
 
     def test_add_game(self):
