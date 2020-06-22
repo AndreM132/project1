@@ -21,22 +21,23 @@ class TestBase(TestCase):
         return app
 
     def setUp(self):
-        """
-        Will be called before every test
-        """
-        # ensure there is no data in the test database when the test starts
         db.session.commit()
         db.drop_all()
         db.create_all()
         
+        update=Lists(first_name="Andre",last_name="Moses",list_title="My List",list_description="description",favourites="PS4")
         
-        
-        db.session.commit()
+        addgame=Games(games_id="2", games_title='Mortal Kombat 11')
+
+        newgame=Games(games_id="1",games_title="Ratchet and Clank",age_rating="3",games_price="20",games_description="new game",console_title="PS4")
+
+
+    
+
+
+
 
     def tearDown(self):
-        """
-        Will be called after every test
-        """
 
         db.session.remove()
         db.drop_all()
@@ -64,43 +65,31 @@ class TestViews(TestBase):
 
 
 
-
-
-
-
-
-
 class TestGames(TestBase):
 
     def test_add_new_game(self):
-        """
-        Test that when I add a new game, I am redirected to the homepage with the new game visible
-        """
         with self.client:
             response = self.client.post(
                 '/gamesconsoles',
                 data=dict(
-                    games_id="1",
                     games_title="Ratchet and Clank",
                     age_rating="3",
                     games_price="20",
-                    games_description="Sickest game",
+                    games_description="new game",
                     console_title="PS4"
                 ),
                 follow_redirects=True
             )
-            self.assertIn(b'1', response.data)
-            self.assertIn(b'PS4', response.data)
-            self.assertIn(b'3', response.data)
+            self.assertIn(b'Ratchet and Clank', response.data)
             print(response.data)
 
-    def test_add_game(self):
+
+    def test_add_game_tolist(self):
 
         with self.client:
             response = self.client.post(
-                    '/addgame/<int:list_id>',
+                    '/addgame/1',
                     data=dict(
-                        list_id="1",
                         games_id="1",
                         games_title="Ratchet and Clank"
                     ),
@@ -116,29 +105,43 @@ class TestLists(TestBase):
             response = self.client.post(
                     '/lists',
                     data=dict(
-                        list_id="1",
                         first_name="Andre",
                         last_name="Moses",
                         list_title="New List",
-                        list_description="New desc",
+                        list_description="description",
                         favourites="PS4",
-                        
                     ),
                     follow_redirects=True
             )
-            return response
+            self.assertIn(b'Andre', response.data)
 
-    def test_missing_field_error(self):
-        with self.client: 
+    def test_add_lists2(self):
+
+        with self.client:
             response = self.client.post(
                     '/lists',
                     data=dict(
-                        list_id='1',
+                        first_name="Nadia",
+                        last_name="Moses",
+                        list_title="Games list",
+                        list_description="description",
+                        favourites="PS4",
                     ),
                     follow_redirects=True
             )
-            self.assertIn(b'This field is required.', response.data)
+            self.assertIn(b'Nadia', response.data)
 
+    def test_add_check_lists(self):
+
+        with self.client:
+            response = self.client.post(
+                    '/lists',
+                    data=dict(
+                        list_title="New List"
+                    ),
+                    follow_redirects=True
+            )
+            self.assertIn(b'New List', response.data)
 
 
 
@@ -146,19 +149,18 @@ class TestLists(TestBase):
 
         with self.client:
             response = self.client.post(
-                    '/lists/update/<int:list_id>',
+                    '/lists/update/1',
                     data=dict(
-                        list_id="2",
-                        first_name="name",
-                        last_name="last",
+                        first_name="Andre",
+                        last_name="Moses",
                         list_title="My List",
                         list_description="description",
-                        favourites="Xbox One X",                     
+                        favourites="PS4",
                         
                     ),   
                     follow_redirects=True
             )
-            return response
+            self.assertIn(b'name', response.data)
 
     def test_delete_lists(self):
 
@@ -170,7 +172,7 @@ class TestLists(TestBase):
                     ),
                     follow_redirects=True
             )
-            return response
+            self.assertIn(b'1', response.data)
 
 
                 
